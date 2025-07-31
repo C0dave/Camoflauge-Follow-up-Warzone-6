@@ -28,7 +28,7 @@ def main_window():
         table.column(col, anchor="center", width=130)
         
     for weapon in weapons:
-        table.insert("", "end", values=(weapon, data[weapon]["Militar"], data[weapon]["Oro"], data[weapon]["Rescate del Rey"], data[weapon]["Catalizador"]))
+        table.insert("", "end", values=(weapon, data[weapon]["Militar"], data[weapon]["Especial"], data[weapon]["Oro"], data[weapon]["Rescate del Rey"], data[weapon]["Catalizador"]))
 
     table.pack(pady=180, padx=20)
     table.bind("<ButtonRelease-1>", lambda event: take_decision(event, table))

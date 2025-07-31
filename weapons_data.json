@@ -1,0 +1,258 @@
+{
+    "XM4": {
+        "Militar": "✔️",
+        "Especial": "✔️",
+        "Oro": "✔️",
+        "Rescate del Rey": "",
+        "Catalizador": "",
+        "index_table": 4
+    },
+    "AK-74": {
+        "Militar": "✔️",
+        "Especial": "✔️",
+        "Oro": "✔️",
+        "Rescate del Rey": "",
+        "Catalizador": "",
+        "index_table": 4
+    },
+    "Ames-85": {
+        "Militar": "✔️",
+        "Especial": "✔️",
+        "Oro": "✔️",
+        "Rescate del Rey": "",
+        "Catalizador": "",
+        "index_table": 4
+    },
+    "GPR-91": {
+        "Militar": "✔️",
+        "Especial": "✔️",
+        "Oro": "✔️",
+        "Rescate del Rey": "",
+        "Catalizador": "",
+        "index_table": 4
+    },
+    "Model-L": {
+        "Militar": "✔️",
+        "Especial": "",
+        "Oro": "",
+        "Rescate del Rey": "",
+        "Catalizador": "",
+        "index_table": 2
+    },
+    "Goblin-MK2": {
+        "Militar": "✔️",
+        "Especial": "✔️",
+        "Oro": "✔️",
+        "Rescate del Rey": "",
+        "Catalizador": "",
+        "index_table": 4
+    },
+    "AS-VAL": {
+        "Militar": "",
+        "Especial": "",
+        "Oro": "",
+        "Rescate del Rey": "",
+        "Catalizador": "",
+        "index_table": 1
+    },
+    "Krig-C": {
+        "Militar": "✔️",
+        "Especial": "✔️",
+        "Oro": "",
+        "Rescate del Rey": "",
+        "Catalizador": "",
+        "index_table": 3
+    },
+    "Cypher-091": {
+        "Militar": "✔️",
+        "Especial": "✔️",
+        "Oro": "",
+        "Rescate del Rey": "",
+        "Catalizador": "",
+        "index_table": 3
+    },
+    "Kilo-141": {
+        "Militar": "✔️",
+        "Especial": "",
+        "Oro": "",
+        "Rescate del Rey": "",
+        "Catalizador": "",
+        "index_table": 2
+    },
+    "CR-56-AMAX": {
+        "Militar": "✔️",
+        "Especial": "",
+        "Oro": "",
+        "Rescate del Rey": "",
+        "Catalizador": "",
+        "index_table": 2
+    },
+    "FFAR-1": {
+        "Militar": "",
+        "Especial": "",
+        "Oro": "",
+        "Rescate del Rey": "",
+        "Catalizador": "",
+        "index_table": 1
+    },
+    "C9": {
+        "Militar": "",
+        "Especial": "",
+        "Oro": "",
+        "Rescate del Rey": "",
+        "Catalizador": "",
+        "index_table": 1
+    },
+    "KSV": {
+        "Militar": "",
+        "Especial": "",
+        "Oro": "",
+        "Rescate del Rey": "",
+        "Catalizador": "",
+        "index_table": 1
+    },
+    "Tanto-.22": {
+        "Militar": "",
+        "Especial": "",
+        "Oro": "",
+        "Rescate del Rey": "",
+        "Catalizador": "",
+        "index_table": 1
+    },
+    "PP-919": {
+        "Militar": "",
+        "Especial": "",
+        "Oro": "",
+        "Rescate del Rey": "",
+        "Catalizador": "",
+        "index_table": 1
+    },
+    "Jackal-PDW": {
+        "Militar": "",
+        "Especial": "",
+        "Oro": "",
+        "Rescate del Rey": "",
+        "Catalizador": "",
+        "index_table": 1
+    },
+    "Kompakt-92": {
+        "Militar": "",
+        "Especial": "",
+        "Oro": "",
+        "Rescate del Rey": "",
+        "Catalizador": "",
+        "index_table": 1
+    },
+    "Saug": {
+        "Militar": "",
+        "Especial": "",
+        "Oro": "",
+        "Rescate del Rey": "",
+        "Catalizador": "",
+        "index_table": 1
+    },
+    "PPSH-41": {
+        "Militar": "",
+        "Especial": "",
+        "Oro": "",
+        "Rescate del Rey": "",
+        "Catalizador": "",
+        "index_table": 1
+    },
+    "LC10": {
+        "Militar": "",
+        "Especial": "",
+        "Oro": "",
+        "Rescate del Rey": "",
+        "Catalizador": "",
+        "index_table": 1
+    },
+    "Ladra": {
+        "Militar": "",
+        "Especial": "",
+        "Oro": "",
+        "Rescate del Rey": "",
+        "Catalizador": "",
+        "index_table": 1
+    },
+    "Marine-SP": {
+        "Militar": "",
+        "Especial": "",
+        "Oro": "",
+        "Rescate del Rey": "",
+        "Catalizador": "",
+        "index_table": 1
+    },
+    "ASG-89": {
+        "Militar": "",
+        "Especial": "",
+        "Oro": "",
+        "Rescate del Rey": "",
+        "Catalizador": "",
+        "index_table": 1
+    },
+    "Maelstrom": {
+        "Militar": "",
+        "Especial": "",
+        "Oro": "",
+        "Rescate del Rey": "",
+        "Catalizador": "",
+        "index_table": 1
+    },
+    "PU-21": {
+        "Militar": "",
+        "Especial": "",
+        "Oro": "",
+        "Rescate del Rey": "",
+        "Catalizador": "",
+        "index_table": 1
+    },
+    "XMG": {
+        "Militar": "",
+        "Especial": "",
+        "Oro": "",
+        "Rescate del Rey": "",
+        "Catalizador": "",
+        "index_table": 1
+    },
+    "GPMG-7": {
+        "Militar": "",
+        "Especial": "",
+        "Oro": "",
+        "Rescate del Rey": "",
+        "Catalizador": "",
+        "index_table": 1
+    },
+    "Feng-82": {
+        "Militar": "",
+        "Especial": "",
+        "Oro": "",
+        "Rescate del Rey": "",
+        "Catalizador": "",
+        "index_table": 1
+    },
+    "SWAT-5.56": {
+        "Militar": "",
+        "Especial": "",
+        "Oro": "",
+        "Rescate del Rey": "",
+        "Catalizador": "",
+        "index_table": 1
+    },
+    "DM-10": {
+        "Militar": "",
+        "Especial": "",
+        "Oro": "",
+        "Rescate del Rey": "",
+        "Catalizador": "",
+        "index_table": 1
+    },
+    "TR2": {
+        "Militar": "",
+        "Especial": "",
+        "Oro": "",
+        "Rescate del Rey": "",
+        "Catalizador": "",
+        "index_table": 1
+    }
+}
