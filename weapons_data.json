@@ -48,20 +48,20 @@
         "index_table": 4
     },
     "AS-VAL": {
-        "Militar": "",
+        "Militar": "✔️",
         "Especial": "",
         "Oro": "",
         "Rescate del Rey": "",
         "Catalizador": "",
-        "index_table": 1
+        "index_table": 2
     },
     "Krig-C": {
         "Militar": "✔️",
         "Especial": "✔️",
-        "Oro": "",
+        "Oro": "✔️",
         "Rescate del Rey": "",
         "Catalizador": "",
-        "index_table": 3
+        "index_table": 4
     },
     "Cypher-091": {
         "Militar": "✔️",

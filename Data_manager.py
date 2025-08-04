@@ -1,6 +1,7 @@
 from ttkbootstrap import *
 from tkinter.messagebox import *
 import json
+import os
 
 weapons = [
     "XM4",
@@ -39,10 +40,11 @@ weapons = [
 
 
 def create_json_file():
-    headings = ["Militar", "Especial", "Oro", "Rescate del Rey", "Catalizador"]
-    weapons_data = {weapon: {camo: "" for camo in headings} | {"index_table": 1} for weapon in weapons}
-    with open("weapons_data.json", "w") as json_file:
-        json.dump(weapons_data, json_file, indent=4)
+    if not os.path.exists("weapons_data.json"):
+        headings = ["Militar", "Especial", "Oro", "Rescate del Rey", "Catalizador"]
+        weapons_data = {weapon: {camo: "" for camo in headings} | {"index_table": 1} for weapon in weapons}
+        with open("weapons_data.json", "w") as json_file:
+            json.dump(weapons_data, json_file, indent=4)
 
 def show_camos_statistics():
     with open("weapons_data.json", "r", encoding="utf-8") as file:
@@ -60,7 +62,9 @@ def take_decision(event, table):
     window = Toplevel()
     window.title("Decisión de camuflaje")
     window.geometry("300x200")
-
+    window.iconbitmap("images/icon.ico")
+    window.resizable(False, False)
+    
     question_label = Label(window, text=f"Que vas a hacer?")
     question_label.pack(pady=10)
 
@@ -127,4 +131,3 @@ def delete_camo(table, window):
                     json.dump(data, file, indent=4, ensure_ascii=False)
                 show_camos_statistics()
                 window.destroy()
-        
