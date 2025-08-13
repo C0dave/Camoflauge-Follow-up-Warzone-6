@@ -483,6 +483,10 @@
   ('json.scanner', 'C:\\Python312\\Lib\\json\\scanner.py', 'PYMODULE'),
   ('logging', 'C:\\Python312\\Lib\\logging\\__init__.py', 'PYMODULE'),
   ('lzma', 'C:\\Python312\\Lib\\lzma.py', 'PYMODULE'),
+  ('main',
+   'C:\\Users\\Arce\\Desktop\\TodosMisTrabajos\\Follow-up camouflage '
+   'wz\\main.py',
+   'PYMODULE'),
   ('mimetypes', 'C:\\Python312\\Lib\\mimetypes.py', 'PYMODULE'),
   ('multiprocessing',
    'C:\\Python312\\Lib\\multiprocessing\\__init__.py',

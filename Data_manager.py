@@ -1,7 +1,7 @@
 from ttkbootstrap import *
 from tkinter.messagebox import *
 import json
-import os
+from main import resource_path 
 
 weapons = [
     "XM4",
@@ -38,14 +38,14 @@ weapons = [
     "TR2"
 ]
 
-
+@staticmethod
 def create_json_file():
-    if not os.path.exists("weapons_data.json"):
-        headings = ["Militar", "Especial", "Oro", "Rescate del Rey", "Catalizador"]
-        weapons_data = {weapon: {camo: "" for camo in headings} | {"index_table": 1} for weapon in weapons}
-        with open("weapons_data.json", "w") as json_file:
-            json.dump(weapons_data, json_file, indent=4)
+    headings = ["Militar", "Especial", "Oro", "Rescate del Rey", "Catalizador"]
+    weapons_data = {weapon: {camo: "" for camo in headings} | {"index_table": 1} for weapon in weapons}
+    with open("weapons_data.json", "w", encoding="utf-8") as file:
+        json.dump(weapons_data, file, indent=4, ensure_ascii=False)
 
+@staticmethod
 def show_camos_statistics():
     with open("weapons_data.json", "r", encoding="utf-8") as file:
         data = json.load(file)
@@ -58,11 +58,12 @@ def show_camos_statistics():
         statistics_label.pack(pady=20)
         statistics_label.place(x=550, y=20)
 
-def take_decision(event, table):
+@staticmethod
+def take_decision(table):
     window = Toplevel()
     window.title("Decisión de camuflaje")
     window.geometry("300x200")
-    window.iconbitmap("images/icon.ico")
+    window.iconbitmap(resource_path("images/icon.ico"))
     window.resizable(False, False)
     
     question_label = Label(window, text=f"Que vas a hacer?")
@@ -76,6 +77,7 @@ def take_decision(event, table):
 
     window.grab_set()
 
+@staticmethod
 def add_camo(table, window):
     weapon_selected = table.focus()
     with open("weapons_data.json", "r", encoding="utf-8") as file:
@@ -86,11 +88,10 @@ def add_camo(table, window):
                 index = data[weapon_selected[0]]["index_table"]
                 name_camo = table['columns'][index]
                 print(f"Arma seleccionada: {weapon_selected[0]}")
-                ask = askyesno("Agregar camuflaje", f"¿Ya tienes el camuflaje {name_camo} del arma {weapon_selected[0]}?")
+                ask = askyesno("Agregar camuflaje", f"¿Ya tienes el camuflaje {name_camo} del arma {weapon_selected[0]}?", parent=window)
                 if ask:
                     num_gold_camos = sum(1 for weapon in data if data[weapon]["Oro"] == "✔️")
                     num_king_rescue_camos = sum(1 for weapon in data if data[weapon]["Rescate del Rey"] == "✔️")
-
                     if num_gold_camos < 7 and name_camo == "Rescate del Rey":
                         showinfo("Info", f"Tienes que desbloquear 7 camuflajes de oro en cualquier arma antes de desbloquear el camuflaje {name_camo} del arma {weapon_selected[0]}")
                     elif num_king_rescue_camos < 33 and name_camo == "Catalizador":
@@ -101,6 +102,8 @@ def add_camo(table, window):
                         check_camos = list(weapon_selected)
                         check_camos[index] = "✔️"
                         table.item(table.focus(), value=check_camos)
+                else:
+                    return
                 with open("weapons_data.json", "w", encoding="utf-8") as file:
                     json.dump(data, file, indent=4, ensure_ascii=False)
                 show_camos_statistics()
@@ -108,6 +111,7 @@ def add_camo(table, window):
             showinfo("Felicitaciones", f"Ya tienes todos los camuflajes de el arma {weapon_selected[0]} desbloqueados")
     window.destroy()
 
+@staticmethod
 def delete_camo(table, window):
     weapon_selected = table.focus()
     with open("weapons_data.json", "r", encoding="utf-8") as file:
@@ -120,9 +124,11 @@ def delete_camo(table, window):
                 return
             else:
                 last_camo = table['columns'][index - 1]
-                ask = askyesno("Eliminar camuflaje", f"¿Quieres eliminar el camuflaje de {last_camo} {weapon_selected[0]}?")
+                ask = askyesno("Eliminar camuflaje", f"¿Quieres eliminar el camuflaje de {last_camo} {weapon_selected[0]}?", parent=window)
                 if ask:
                     data[weapon_selected[0]][last_camo] = ""
+                else:
+                    return
                 data[weapon_selected[0]]["index_table"] -= 1
                 check_camos = list(weapon_selected)
                 check_camos[index - 1] = ""

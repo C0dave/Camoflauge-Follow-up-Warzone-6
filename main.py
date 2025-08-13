@@ -3,6 +3,7 @@ from tkinter.messagebox import *
 from PIL import Image, ImageTk
 from data_manager import *
 import sys
+import os
 
 def resource_path(relative_path):
     try:
@@ -14,9 +15,13 @@ def resource_path(relative_path):
 
 def main_window():
     global table
-    create_json_file()
-    with open("weapons_data.json", "r", encoding="utf-8") as file:
-        data = json.load(file)
+    try:
+        with open("weapons_data.json", "r", encoding="utf-8") as file:
+            data = json.load(file)
+    except FileNotFoundError:
+        showerror("Error", "Archivo JSON no existe (Cierra este mensaje para crearlo)")
+        create_json_file()
+        return
     window = Window(themename="darkly")
     window.title("Seguimiento de camuflajes de Warzone")
     window.geometry("850x590")
@@ -57,7 +62,7 @@ def main_window():
         table.insert("", "end", values=(weapon, data[weapon]["Militar"], data[weapon]["Especial"], data[weapon]["Oro"], data[weapon]["Rescate del Rey"], data[weapon]["Catalizador"]))
 
     table.pack(pady=155)
-    table.bind("<ButtonRelease-1>", lambda event: take_decision(event, table))
+    table.bind("<ButtonRelease-1>", lambda event: take_decision(table))
 
     window.mainloop()
 

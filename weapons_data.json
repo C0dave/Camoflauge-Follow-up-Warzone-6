@@ -1,91 +1,91 @@
 {
     "XM4": {
-        "Militar": "✔️",
-        "Especial": "✔️",
-        "Oro": "✔️",
+        "Militar": "",
+        "Especial": "",
+        "Oro": "",
         "Rescate del Rey": "",
         "Catalizador": "",
-        "index_table": 4
+        "index_table": 1
     },
     "AK-74": {
-        "Militar": "✔️",
-        "Especial": "✔️",
-        "Oro": "✔️",
+        "Militar": "",
+        "Especial": "",
+        "Oro": "",
         "Rescate del Rey": "",
         "Catalizador": "",
-        "index_table": 4
+        "index_table": 1
     },
     "Ames-85": {
-        "Militar": "✔️",
-        "Especial": "✔️",
-        "Oro": "✔️",
+        "Militar": "",
+        "Especial": "",
+        "Oro": "",
         "Rescate del Rey": "",
         "Catalizador": "",
-        "index_table": 4
+        "index_table": 1
     },
     "GPR-91": {
-        "Militar": "✔️",
-        "Especial": "✔️",
-        "Oro": "✔️",
+        "Militar": "",
+        "Especial": "",
+        "Oro": "",
         "Rescate del Rey": "",
         "Catalizador": "",
-        "index_table": 4
+        "index_table": 1
     },
     "Model-L": {
-        "Militar": "✔️",
+        "Militar": "",
         "Especial": "",
         "Oro": "",
         "Rescate del Rey": "",
         "Catalizador": "",
-        "index_table": 2
+        "index_table": 1
     },
     "Goblin-MK2": {
-        "Militar": "✔️",
-        "Especial": "✔️",
-        "Oro": "✔️",
+        "Militar": "",
+        "Especial": "",
+        "Oro": "",
         "Rescate del Rey": "",
         "Catalizador": "",
-        "index_table": 4
+        "index_table": 1
     },
     "AS-VAL": {
-        "Militar": "✔️",
+        "Militar": "",
         "Especial": "",
         "Oro": "",
         "Rescate del Rey": "",
         "Catalizador": "",
-        "index_table": 2
+        "index_table": 1
     },
     "Krig-C": {
-        "Militar": "✔️",
-        "Especial": "✔️",
-        "Oro": "✔️",
+        "Militar": "",
+        "Especial": "",
+        "Oro": "",
         "Rescate del Rey": "",
         "Catalizador": "",
-        "index_table": 4
+        "index_table": 1
     },
     "Cypher-091": {
-        "Militar": "✔️",
-        "Especial": "✔️",
+        "Militar": "",
+        "Especial": "",
         "Oro": "",
         "Rescate del Rey": "",
         "Catalizador": "",
-        "index_table": 3
+        "index_table": 1
     },
     "Kilo-141": {
-        "Militar": "✔️",
+        "Militar": "",
         "Especial": "",
         "Oro": "",
         "Rescate del Rey": "",
         "Catalizador": "",
-        "index_table": 2
+        "index_table": 1
     },
     "CR-56-AMAX": {
-        "Militar": "✔️",
+        "Militar": "",
         "Especial": "",
         "Oro": "",
         "Rescate del Rey": "",
         "Catalizador": "",
-        "index_table": 2
+        "index_table": 1
     },
     "FFAR-1": {
         "Militar": "",
