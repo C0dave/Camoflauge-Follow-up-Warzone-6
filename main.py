@@ -1,11 +1,11 @@
 from ttkbootstrap import *
 from tkinter.messagebox import *
 from PIL import Image, ImageTk
-from data_manager import *
+from view import *
 import sys
 import os
 
-def resource_path(relative_path):
+"""def resource_path(relative_path):
     try:
         base_path = sys._MEIPASS
     except AttributeError:
@@ -67,4 +67,6 @@ def main_window():
     window.mainloop()
 
 if __name__ == "__main__":
-    main_window()
+    main_window()"""
+
+windows.Main_window()
