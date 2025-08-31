@@ -16,7 +16,7 @@ class Weapons_and_Headers:
 
 class get_data:
     @staticmethod
-    def load_weapon_index() -> int:
+    def get_weapon_index() -> int:
         try:
             with open("weapons_data.json", "r", encoding="utf-8") as file:
                 data = json.load(file)
@@ -28,7 +28,7 @@ class get_data:
             sys.exit(0)
 
     @staticmethod
-    def load_weapon_camo(category_weapon, weapon, camo) -> str:
+    def get_weapon_camo(category_weapon:str, weapon:str, camo:str) -> str:
         try:
             with open("weapons_data.json", "r", encoding="utf-8") as file:
                 data = json.load(file)
@@ -40,7 +40,7 @@ class get_data:
             sys.exit(0)
     
     @staticmethod
-    def load_min_num_gold_camos(category_weapon) -> int:
+    def get_min_num_camos(category_weapon:str) -> int:
         try:
             with open("weapons_data.json", "r", encoding="utf-8") as file:
                 data = json.load(file)
@@ -52,55 +52,34 @@ class get_data:
             sys.exit(0)
     
     @staticmethod
-    def load_num_gold_camos(category_weapon) -> int:
+    def get_num_camos(category_weapon:str, camo:str, in_category:bool) -> int:
         try:
             with open("weapons_data.json", "r", encoding="utf-8") as file:
                 data = json.load(file)
-                num_gold_camos = data[category_weapon]["gold_camos"]
-            return num_gold_camos
-        except FileNotFoundError:
-            showerror("Error", "Carpeta JSON no exite cierra el mensaje para crearlo")
-            set_data.create_json_file()
-            sys.exit(0)
-
-    @staticmethod
-    def load_num_KR_camos(category_weapon) -> int:
-        try:
-            with open("weapons_data.json", "r", encoding="utf-8") as file:
-                data = json.load(file)
-
-                num_gold_camos = data[category_weapon]["KR_camos"]
-            return num_gold_camos
+                num_of_camos = None
+                if in_category:
+                    num_of_camos = data[category_weapon][camo]
+                else:
+                    num_of_camos = data[camo]
+            return num_of_camos
         except FileNotFoundError:
             showerror("Error", "Carpeta JSON no exite cierra el mensaje para crearlo")
             set_data.create_json_file()
             sys.exit(0)
     
-    @staticmethod
-    def load_num_Catalyst_camos() -> int:
-        try:
-            with open("weapons_data.json", "r", encoding="utf-8") as file:
-                data = json.load(file)
-                num_gold_camos = data["Catalyst_camos"]
-            return num_gold_camos
-        except FileNotFoundError:
-            showerror("Error", "Carpeta JSON no exite cierra el mensaje para crearlo")
-            set_data.create_json_file()
-            sys.exit(0)
-
 class set_data:
     @staticmethod
-    def create_json_file():
+    def create_json_file() -> json:
         WaH = Weapons_and_Headers 
         if not os.path.exists("weapons_data.json"):
             headings = ["Militar", "Especial", "Oro", "Rescate del Rey", "Catalizador"]
-            min_gold_camos = [7, 6, 2, 4, 3]
-            weapons_data = {category: {**{weapon: {camo: "" for camo in headings} for weapon in getattr(WaH, category)}} | {"minimum_gold_camos": min_gold_camos[num]} | {"gold_camos": 0, "KR_camos": 1} for category, num in zip(WaH.weapon_categories, range(5))} | {"index_table": list(range(6)), "Catalyst_camos": 1}
+            min_gold_camos = [7, 6, 2, 3, 3]
+            weapons_data = {category: {**{weapon: {camo: "" for camo in headings} for weapon in getattr(WaH, category)}} | {"minimum_gold_camos": min_gold_camos[num]} | {"gold_camos": 0, "KR_camos": 1} for category, num in zip(WaH.weapon_categories, range(5))} | {"index_table": list(range(6)), "Total_KR_camos": 1, "Catalyst_camos": 1}
             with open("weapons_data.json", "w", encoding="utf-8") as file:
                 json.dump(weapons_data, file, indent=4, ensure_ascii=False)
 
     @staticmethod
-    def add_camo_to_json(category_weapon, weapon, camo):
+    def add_camo_to_json(category_weapon:str, weapon:str, camo:str):
         try:
             with open("weapons_data.json", "r", encoding="utf-8") as file:
                 data = json.load(file)
@@ -113,37 +92,14 @@ class set_data:
             sys.exit(0)
 
     @staticmethod
-    def add_num_gold_camo(category_weapon):
+    def add_num_camo_to_json(category_weapon:str, camo:str, in_category:bool):
         try:
             with open("weapons_data.json", "r", encoding="utf-8") as file:
                 data = json.load(file)
-                data[category_weapon]["gold_camos"] += 1
-            with open("weapons_data.json", "w", encoding="utf-8") as file:
-                json.dump(data, file, indent=4, ensure_ascii=False)        
-        except FileNotFoundError:
-            showerror("Error", "Carpeta JSON no existe. Cierra el mensaje para crearlo")
-            set_data.create_json_file()
-            sys.exit(0)
-    
-    @staticmethod
-    def add_num_KR_camo(category_weapon):
-        try:
-            with open("weapons_data.json", "r", encoding="utf-8") as file:
-                data = json.load(file)
-                data[category_weapon]["KR_camos"] += 1
-            with open("weapons_data.json", "w", encoding="utf-8") as file:
-                json.dump(data, file, indent=4, ensure_ascii=False)        
-        except FileNotFoundError:
-            showerror("Error", "Carpeta JSON no existe. Cierra el mensaje para crearlo")
-            set_data.create_json_file()
-            sys.exit(0)
-    
-    @staticmethod
-    def add_num_Catalyst_camo():
-        try:
-            with open("weapons_data.json", "r", encoding="utf-8") as file:
-                data = json.load(file)
-                data["Catalyst_camos"] += 1
+                if in_category:
+                    data[category_weapon][camo] += 1
+                else:
+                    data[camo] += 1
             with open("weapons_data.json", "w", encoding="utf-8") as file:
                 json.dump(data, file, indent=4, ensure_ascii=False)        
         except FileNotFoundError:
@@ -151,9 +107,8 @@ class set_data:
             set_data.create_json_file()
             sys.exit(0)
 
-
     @staticmethod
-    def del_camo_from_json(category_weapon, weapon, camo):
+    def del_camo_from_json(category_weapon:str, weapon:str, camo:str):
         try:
             with open("weapons_data.json", "r", encoding="utf-8") as file:
                 data = json.load(file)
@@ -166,49 +121,23 @@ class set_data:
             sys.exit(0)
 
     @staticmethod
-    def del_num_gold_camo(category_weapon):
+    def del_num_camo_from_json(category_weapon:str, camo:str, in_category:bool, all:bool):
         try:
             with open("weapons_data.json", "r", encoding="utf-8") as file:
                 data = json.load(file)
-                data[category_weapon]["gold_camos"] -= 1
-            with open("weapons_data.json", "w", encoding="utf-8") as file:
-                json.dump(data, file, indent=4, ensure_ascii=False)        
-        except FileNotFoundError:
-            showerror("Error", "Carpeta JSON no existe. Cierra el mensaje para crearlo")
-            set_data.create_json_file()
-            sys.exit(0)
-    
-    @staticmethod
-    def del_num_KR_camo(category_weapon, all:bool):
-        try:
-            with open("weapons_data.json", "r", encoding="utf-8") as file:
-                data = json.load(file)
-                if all == False:
-                    data[category_weapon]["KR_camos"] -= 1
+                if in_category:
+                    if all:
+                        data[category_weapon][camo] = 1
+                    else:
+                        data[category_weapon][camo] -= 1
                 else:
-                    data[category_weapon]["KR_camos"] = 0
+                    if all:
+                        data[camo] = 1
+                    else:
+                        data[camo] -= 1
             with open("weapons_data.json", "w", encoding="utf-8") as file:
                 json.dump(data, file, indent=4, ensure_ascii=False)        
         except FileNotFoundError:
             showerror("Error", "Carpeta JSON no existe. Cierra el mensaje para crearlo")
             set_data.create_json_file()
-            sys.exit(0)
-
-    @staticmethod
-    def del_num_Catalyst_camo(all:bool):
-        try:
-            with open("weapons_data.json", "r", encoding="utf-8") as file:
-                data = json.load(file)
-                if all == False:
-                    data["Catalyst_camos"] -= 1
-                else:
-                    data["Catalyst_camos"] = 0
-            with open("weapons_data.json", "w", encoding="utf-8") as file:
-                json.dump(data, file, indent=4, ensure_ascii=False)        
-        except FileNotFoundError:
-            showerror("Error", "Carpeta JSON no existe. Cierra el mensaje para crearlo")
-            set_data.create_json_file()
-            sys.exit(0)
-    
-
-
+            sys.exit(0) 

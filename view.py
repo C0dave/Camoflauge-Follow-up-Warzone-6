@@ -42,7 +42,7 @@ class windows:
         table_style = Style()
         table_style.configure("Treeview", rowheight=40, font=("Arial", 15))
         table = Treeview(main_window, columns=(WaH.headers), cursor="hand2", show="headings")
-        output_manager.load_data_table_zip(table)
+        output_manager.show_data_table_zip(table)
         table.tag_configure("category", background="#032E4B", foreground="white", font=("Arial", 9, "bold"))
         table.tag_bind("category", "<ButtonRelease-1>", lambda e: table.selection_remove(table.focus()))
         table.bind("<ButtonRelease-1>", lambda e: windows.Question_window(input_manager.get_weapon_selected(table)))
@@ -76,4 +76,4 @@ class windows:
             button_delete = Button(window, text="Eliminar camuflaje", style="danger", cursor="hand2", command=lambda: input_manager.del_camo(table, window, weapon_selected))
             button_delete.pack() 
 
-            window.grab_set()
+            window.grab_set_global()
